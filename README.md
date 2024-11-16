@@ -17,8 +17,8 @@ Software – Quartus prime Theory Adders are digital circuits that carry out the
 Half adder is a combinational circuit that performs simple addition of two binary numbers. The input variables designate the augend and addend bits; the output variables produce the sum and carry. It is necessary to specify two output variables because the result may consist of two binary digits.
 
 Sum = A’B+AB’ =A ⊕ B Carry = AB
+![Screenshot 2024-11-12 133633](https://github.com/user-attachments/assets/726ee04a-69a9-45d5-af86-2af51f44438c)
 
-![image](https://github.com/naavaneetha/HALF_ADDER_SUBTRACTOR/assets/154305477/bd4a0b2c-cdbc-4184-ab08-81578f121e1f)
 
 Figure -01 HALF ADDER
 
@@ -28,12 +28,28 @@ The half-subtractor is a combinational circuit which is used to perform subtract
 
 Diff = A’B+AB’ =A ⊕ B
 Borrow = A’B
+![Screenshot 2024-11-16 211227](https://github.com/user-attachments/assets/35ed72fb-9dca-41b1-9abf-ad0629fa1315)
 
- ![image](https://github.com/naavaneetha/HALF_ADDER_SUBTRACTOR/assets/154305477/d76b099c-513f-4e7c-843a-e2fd028a531a)
 
 Figure -02 HALF Subtractor
 
 **Truthtable**
+
+a	b	sum (a ^ b)	carry (a & b)
+0	0	0	0
+0	1	1	0
+1	0	1	0
+1	1	0	1
+![image](https://github.com/user-attachments/assets/3fd38d6b-39a9-4ae3-88c3-aa5dff3f63a0)
+
+
+a	b	difference (a ⊕ b)	borrow (~a & b)
+0	0	0	0
+0	1	1	1
+1	0	1	0
+1	1	0	0
+![image](https://github.com/user-attachments/assets/6ece45db-babb-4e61-80f7-ba49ba80d539)
+
 
 **Procedure**
 
@@ -50,12 +66,39 @@ Figure -02 HALF Subtractor
 
 **Program:**
 
+i)HALF ADDER
+
+module ha(a,b,sum,carry);
+input a,b;
+output sum,carry;
+assign sum= (a ^ b);
+assign carry= ( a & b);
+endmodule
+
+
+ii)HALF SUBTRACTOR
+
+module hs(a,b,difference,borrow);
+input a,b;
+output difference,borrow;
+assign difference= (a ^ b);
+assign borrow= ( ~a & b);
+endmodule
+
+
+
 /* Program to design a half adder and full adder circuit and verify its truth table in quartus using Verilog programming.
 
-Developed by: RegisterNumber:*/
+Developed by:Junjar U
+RegisterNumber:24008873
 
-**RTL Schematic**
+*RTL Schematic**
+*![Screenshot 2024-11-12 133910](https://github.com/user-attachments/assets/4eda8653-f2a0-42ba-83a0-7faaad4a74a5)
+
+![Screenshot 2024-11-16 211421](https://github.com/user-attachments/assets/f91ddac9-5d6e-4027-9106-d91dab3784eb)
+
 
 **Output/TIMING Waveform**
 
 **Result:**
+Thus the given half adder and half subtractor functions are implemented and their operators are verified using Verilog programming.
